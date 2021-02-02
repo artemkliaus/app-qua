@@ -1,0 +1,32 @@
+{
+  "form": {
+    "name": {
+      "label": "Имя",
+      "placeholder": "Введите имя",
+      "value": "",
+      "required": 1
+    },
+    "age": {
+      "label": "Возраст",
+      "placeholder": "",
+      "value": 0,
+      "required": 1
+    },
+    "family": {
+      "label": "Семейное положение",
+      "placeholder": "Семейное положение",
+      "required": 0,
+      "value": 1,
+      "items": [
+        {
+          "text": "Не женат/не замужем",
+          "value": 1
+        },
+        {
+          "text": "Женат/замужем",
+          "value": 2
+        }
+      ]
+    }
+  }
+}

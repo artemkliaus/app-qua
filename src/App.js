@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Form from './Form';
+import Dialog from '@material-ui/core/Dialog';
+import { makeStyles } from '@material-ui/core/styles';
+import mockJson from './mockData.json';
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  dialog: {
+    '& .MuiPaper-root': {
+      padding: '20px'
+    }
+  }
+}));
+
+const App = () => {
+  const classes = useStyles();
+  const [data, setData] = React.useState('');
+  const closeHandler = () => setData('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="AppTitle">Анкета</h1>
+      <Form formData={setData} serverData={mockJson.form} />
+      <Dialog open={!!data} onClose={closeHandler} className={classes.dialog}>{data}</Dialog>
     </div>
   );
 }
